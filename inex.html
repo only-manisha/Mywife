@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday My Wife</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f url('https://media.giphy.com/media/3ohs4BSacFKI7A717y/giphy.gif') repeat;
+      color: #00ffc3;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .message-box {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00ffc3;
+      width: 80%;
+      max-width: 700px;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      white-space: pre-wrap;
+      border: 2px solid #00ffc3;
+    }
+
+    .cursor {
+      display: inline-block;
+      background-color: #00ffc3;
+      width: 8px;
+      height: 20px;
+      margin-left: 3px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="message-box" id="message">
+</div>
+
+<script>
+  const message = `Meri pyari patni ji,
+Aapka pyara baccha aaj aapko bahut Miss kar rha hai.
+Aapki bahut yaad aa rhi hai jaan.
+Aaj aapka birthday hai, mai aapke birthday pe aapke sath nhi hu,lekin promise karta hu ki bahut jald mai aapke sath aapka birthday manaunga.
+Happiest birthday my wife!
+I love you so much.
+Don't be upset, everything is going to be good. Don't worry jaan, stay mine and be happy.
+Bahut jald aaunga aapke pass.
+Aapka first birthday hai, socha tha special banaunga,
+lekin itne dur se special nhi bana saka.
+Lekin mai aapka ek time ke baad har birthday bahut special tareeke se banaunga --ye mera wada raha aapse.`;
+let i = 0;
+  const speed = 40;
+  const messageBox = document.getElementById("message");
+
+  function typeWriter() {
+    if (i < message.length) {
+      messageBox.innerHTML = message.substring(0, i + 1) + '<span class="cursor"></span>';
+      i++;
+      setTimeout(typeWriter, speed);
+    } else {
+      messageBox.innerHTML = message; // Remove cursor after typing ends
+    }
+  }
+
+  window.onload = typeWriter;
+</script>
+
+</body>
+</html>
